@@ -13,8 +13,7 @@ class App extends React.Component {
         );
     }
 
-    //define render is a react requirement to return a JSX
-    render() {
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error: {this.state.errorMessage}</div>
             
@@ -25,9 +24,18 @@ class App extends React.Component {
         }
 
         return <Spinner message="Please accept location request"/>
+    };
 
-    }
-}
+    render() {
+        return (
+            //this classnmae is made up, not expected any border. Just testing 
+            // the helper function renderContent.
+            <div className='border red'>
+                {this.renderContent()}
+            </div>
+        );
+    };
+};
 
 ReactDOM.render(
     <App />,
